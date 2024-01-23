@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- HTML Meta Tags -->
-  <meta name="description" content="UNFORTUNATELY WE HAVE NOT">
+  <meta name="description" content="CLICK TO FIND OUT">
 
   <!-- Facebook Meta Tags -->
   <meta property="og:url" content="https://didwekillforeignkeysyet.com/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Did we kill foreign keys yet?">
-  <meta property="og:description" content="UNFORTUNATELY WE HAVE NOT">
+  <meta property="og:description" content="CLICK TO FIND OUT">
   <meta property="og:image" content="https://didwekillforegnkeysyet.com/slack-preview.png">
 
   <!-- Twitter Meta Tags -->
@@ -20,32 +20,219 @@
   <meta property="twitter:domain" content="didwekillforeignkeysyet.com">
   <meta property="twitter:url" content="https://didwekillforeignkeysyet.com/">
   <meta name="twitter:title" content="Did we kill foreign keys yet?">
-  <meta name="twitter:description" content="UNFORTUNATELY WE HAVE NOT">
+  <meta name="twitter:description" content="CLICK TO FIND OUT">
   <meta name="twitter:image" content="https://didwekillforeignkeysyet.com/slack-preview.png">
 
   <!-- Meta Tags Generated via https://www.opengraph.xyz -->
+  <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
         
     <title>Well, did we?</title>
     <style>
-        body {
-            background-color: black;
-            color: white;
-            font-family: Arial, Helvetica, sans-serif;
-            text-align: center;
-        }
+
+
+        :root {
+            --color-background: #31037D;
+            --axis-x: 1px;
+            --axis-y: 1rem;
+            --delay: 10;
+            --color-black: #000;
+            --color-white: #fff;
+            --color-orange: #D49C3D;
+            --color-red: #D14B3D;
+            --color-violet: #CF52EB;
+            --color-blue: #44A3F7;
+            --color-green: #5ACB3C;
+            --color-yellow: #DEBF40;
+            --color-foreground: var(--color-white);
+            --font-name: Righteous;
+            }
+
+            html, body {
+                font-size: 24px;
+                padding: 0;
+                margin: 0;
+            }
+
+            body {
+                background-color: var(--color-background);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-family: var(--font-name);
+                height: 100vh;
+            }
+
+            .header-container {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 20vh;
+                text-align: center;
+            }
+
+            /* .container {
+                position: absolute;
+                display: flex;
+                align-items: center;
+                text-justify: center; 
+                justify-content: center;
+                width: 50vw;
+            } */
+
+            .c-rainbow {
+                counter-reset: rainbow;
+                position: relative;
+                display: block;
+                align-items: center;
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+            .c-rainbow__layer {
+            
+            --text-color: var(--color-foreground);
+            width: 100%;
+            counter-increment: rainbow;
+            font-size: 3rem;
+            color: var(--text-color);
+            text-shadow: -1px -1px 0 var(--color-black), 1px -1px 0 var(--color-black), -1px 1px 0 var(--color-black), 1px 1px 0 var(--color-black), 4px 4px 0 rgba(0, 0, 0, 0.2);
+            animation: rainbow 1.5s ease-in-out infinite;
+            }
+            .c-rainbow__layer:nth-child(1) {
+            animation-delay: calc( 1 / var(--delay) * 1s);
+            left: calc(var(--axis-x) * 1);
+            z-index: -10;
+            }
+            .c-rainbow__layer:nth-child(2) {
+            animation-delay: calc( 2 / var(--delay) * 1s);
+            left: calc(var(--axis-x) * 2);
+            z-index: -20;
+            }
+            .c-rainbow__layer:nth-child(3) {
+            animation-delay: calc( 3 / var(--delay) * 1s);
+            left: calc(var(--axis-x) * 3);
+            z-index: -30;
+            }
+            .c-rainbow__layer:nth-child(4) {
+            animation-delay: calc( 4 / var(--delay) * 1s);
+            left: calc(var(--axis-x) * 4);
+            z-index: -40;
+            }
+            .c-rainbow__layer:nth-child(5) {
+            animation-delay: calc( 5 / var(--delay) * 1s);
+            left: calc(var(--axis-x) * 5);
+            z-index: -50;
+            }
+            .c-rainbow__layer:nth-child(6) {
+            animation-delay: calc( 6 / var(--delay) * 1s);
+            left: calc(var(--axis-x) * 6);
+            z-index: -60;
+            }
+            .c-rainbow__layer:nth-child(7) {
+            animation-delay: calc( 7 / var(--delay) * 1s);
+            left: calc(var(--axis-x) * 7);
+            z-index: -70;
+            }
+            .c-rainbow__layer:not(:first-child) {
+            position: absolute;
+            top: 0;
+            }
+            .c-rainbow__layer--white {
+            --text-color: var(--color-white);
+            }
+            .c-rainbow__layer--orange {
+            --text-color: var(--color-orange);
+            }
+            .c-rainbow__layer--red {
+            --text-color: var(--color-red);
+            }
+            .c-rainbow__layer--violet {
+            --text-color: var(--color-violet);
+            }
+            .c-rainbow__layer--blue {
+            --text-color: var(--color-blue);
+            }
+            .c-rainbow__layer--green {
+            --text-color: var(--color-green);
+            }
+            .c-rainbow__layer--yellow {
+            --text-color: var(--color-yellow);
+            }
+
+            @keyframes rainbow {
+            0%, 100% {
+                transform: translatey(var(--axis-y));
+            }
+            50% {
+                transform: translatey(calc(var(--axis-y) * -1));
+            }
+            }
+
         h1 {
             font-size: 5rem;
             margin-top: 20vh;
         }
         h3 {
-            color: #111;
+            display: block;
+            color: var(--color-blue);
             font-size: 2rem;
             margin-top: 10vh;
         }
     </style>
 </head>
 <body>
-    <h3>Did we kill foreign keys yet?</h3>
-    <h1>UNFORTUNATELY, NO.</h1>
+    <div class="header-container">
+        <h3>Did we kill foreign keys yet?</h3>
+    </div>
+    <!-- <h1>UNFORTUNATELY, NO.</h1> -->
+
+    <!-- <div>
+    <div class="container"> -->
+    <ul class="c-rainbow">
+        <li class="c-rainbow__layer c-rainbow__layer--white">YES WE DID!!!</li>
+        <li class="c-rainbow__layer c-rainbow__layer--orange">YES WE DID!!!</li>
+        <li class="c-rainbow__layer c-rainbow__layer--red">YES WE DID!!!</li>
+        <li class="c-rainbow__layer c-rainbow__layer--violet">YES WE DID!!!</li>
+        <li class="c-rainbow__layer c-rainbow__layer--blue">YES WE DID!!!</li>
+        <li class="c-rainbow__layer c-rainbow__layer--green">YES WE DID!!!</li>
+        <li class="c-rainbow__layer c-rainbow__layer--yellow">YES WE DID!!!</li>
+    </ul>
+
+    <!-- </div>
+    </div> -->
+    <script>
+        const duration = 15 * 1000,
+        animationEnd = Date.now() + duration,
+        defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+
+        function randomInRange(min, max) {
+        return Math.random() * (max - min) + min;
+        }
+
+        const interval = setInterval(function() {
+        const timeLeft = animationEnd - Date.now();
+
+        if (timeLeft <= 0) {
+            return clearInterval(interval);
+        }
+
+        const particleCount = 50 * (timeLeft / duration);
+
+        // since particles fall down, start a bit higher than random
+        confetti(
+            Object.assign({}, defaults, {
+            particleCount,
+            origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
+            })
+        );
+        confetti(
+            Object.assign({}, defaults, {
+            particleCount,
+            origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
+            })
+        );
+        }, 250);
+    </script>
 </body>
 </html>
