@@ -25,6 +25,7 @@
 
   <!-- Meta Tags Generated via https://www.opengraph.xyz -->
   <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
+  <!-- <script type='text/javascript' src='//www.midijs.net/lib/midi.js'></script> -->
         
     <title>Well, did we?</title>
     <style>
@@ -182,14 +183,17 @@
     </style>
 </head>
 <body>
-    <div class="header-container">
+    <h1>CLICK TO FIND OUT</h1>
+    <audio>
+        <source src="final.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+      </audio>
+
+    <div class="header-container" style="display:none;">
         <h3>Did we kill foreign keys yet?</h3>
     </div>
-    <!-- <h1>UNFORTUNATELY, NO.</h1> -->
 
-    <!-- <div>
-    <div class="container"> -->
-    <ul class="c-rainbow">
+    <ul class="c-rainbow" style="display:none;">
         <li class="c-rainbow__layer c-rainbow__layer--white">YES WE DID!!!</li>
         <li class="c-rainbow__layer c-rainbow__layer--orange">YES WE DID!!!</li>
         <li class="c-rainbow__layer c-rainbow__layer--red">YES WE DID!!!</li>
@@ -199,40 +203,50 @@
         <li class="c-rainbow__layer c-rainbow__layer--yellow">YES WE DID!!!</li>
     </ul>
 
-    <!-- </div>
-    </div> -->
     <script>
-        const duration = 15 * 1000,
-        animationEnd = Date.now() + duration,
-        defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+        let started = false;
 
-        function randomInRange(min, max) {
-        return Math.random() * (max - min) + min;
-        }
+        document.querySelector('h1').addEventListener('click', function() {
+            if (started) return;
+            started = true;
+            document.querySelector('audio').play();
+            // MIDIjs.play('final.mid')
 
-        const interval = setInterval(function() {
-        const timeLeft = animationEnd - Date.now();
+            document.querySelector('.header-container').style.display = 'block';
+            document.querySelector('.c-rainbow').style.display = 'block';
+            document.querySelector('h1').style.display = 'none';
 
-        if (timeLeft <= 0) {
-            return clearInterval(interval);
-        }
+            const duration = 300 * 1000,
+            animationEnd = Date.now() + duration,
+            defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
 
-        const particleCount = 50 * (timeLeft / duration);
+            function randomInRange(min, max) {
+                return Math.random() * (max - min) + min;
+            }
 
-        // since particles fall down, start a bit higher than random
-        confetti(
-            Object.assign({}, defaults, {
-            particleCount,
-            origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
-            })
-        );
-        confetti(
-            Object.assign({}, defaults, {
-            particleCount,
-            origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
-            })
-        );
-        }, 250);
+            const interval = setInterval(function() {
+                const timeLeft = animationEnd - Date.now();
+
+
+                const particleCount = 50 * (timeLeft / duration);
+
+                // since particles fall down, start a bit higher than random
+                confetti(
+                    Object.assign({}, defaults, {
+                    particleCount,
+                    origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
+                    })
+                );
+                confetti(
+                    Object.assign({}, defaults, {
+                    particleCount,
+                    origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
+                    })
+                );
+            }, 250);
+
+        });
+
     </script>
 </body>
 </html>
